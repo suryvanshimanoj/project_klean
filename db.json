@@ -1,0 +1,165 @@
+{
+  "user": [
+    {
+      "id": "1710141563987",
+      "name": "ram",
+      "email": "ram@gmail.com",
+      "password": "2345",
+      "mobile": "9722041171",
+      "status": "Unblock",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9M4k-ekYxhJ3NXY9Zl6I0spXEONxqNFyXKg&usqp="
+    },
+    {
+      "id": "1710141591345",
+      "name": "monu",
+      "email": "monu@gmail.com",
+      "password": "1234",
+      "mobile": "1234567800",
+      "status": "Unblock",
+      "img": "https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fs3.us-east-1.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2Fc97878cd-dfaa-4987-9388-95b0e2bfae7d.jpeg"
+    },
+    {
+      "id": "1710777124964",
+      "name": "geet",
+      "email": "geet@gamil.com",
+      "password": "1234",
+      "mobile": "1234567892",
+      "status": "Unblock",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiasJNCLko2jpQx0CYWjQCgeJQfq6C7Il4XQ&usqp=CAU"
+    },
+    {
+      "id": "1711624038928",
+      "name": "shyam",
+      "email": "shyam@gmail.com",
+      "password": "1234",
+      "mobile": "9876543210",
+      "status": "Unblock",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPfO37MK81JIyR1ptwqr_vYO3w4VR-iC2wqQ&usqp=CAU"
+    },
+    {
+      "id": "1711624120345",
+      "name": "golu",
+      "email": "golu@gmail.com",
+      "password": "12345",
+      "mobile": "9873216540",
+      "status": "Unblock",
+      "img": "https://cdn.pixabay.com/photo/2015/01/02/10/47/search-engine-optimization-586422_640.jpg"
+    },
+    {
+      "id": "1715841136420",
+      "name": "rahul",
+      "email": "rahul@gmail.com",
+      "password": "123456",
+      "mobile": "0123456789",
+      "status": "Unblock",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0gF2r4Qbq7gLdEzLA3qKacerxS-Q1Xi0YTg&usqp=CAU"
+    },
+    {
+      "id": "1716438053328",
+      "name": "mayur",
+      "email": "mayur@gmail.com",
+      "password": "1111",
+      "mobile": "15281278",
+      "status": "unblock",
+      "img": "https://cdn-jmokn.nitrocdn.com/NkbTguXjZdfKCcqakfKnvcxqLMITSiCM/assets/images/optimized/rev-dfc3e1f/www.carstudiomohali.com/wp-content/uploads/2023/11/Range-Rover-Price-in-India.jpg"
+    }
+  ],
+  "contact": [
+    {
+      "id": "2",
+      "name": "jay",
+      "email": "jay-2@gmail.com",
+      "subject": "demo",
+      "comment": "reactjs"
+    },
+    {
+      "id": "1716979365275",
+      "name": "Ravi",
+      "email": "Ravi@gamil.com",
+      "subject": "demo",
+      "comment": "Javascript"
+    }
+  ],
+  "admin": [
+    {
+      "id": "3",
+      "name": "Tops",
+      "email": "tops@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1709711414790",
+      "cate_name": "SEO Optimization",
+      "img": "https://cdn.pixabay.com/photo/2015/01/02/10/47/search-engine-optimization-586422_640.jpg"
+    },
+    {
+      "id": "1709711710204",
+      "cate_name": "Web Design",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVoKMznGqBYG2Vh2rCEW5DeBztVpK0LgEmTQ&usqp=CAU"
+    },
+    {
+      "id": "1709711871582",
+      "cate_name": "Royal Enfield",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXueInFor-oBlOnTR3Qb1rMHJsC2u3FOn2VA&usqp=CAU"
+    },
+    {
+      "id": "1716979156514",
+      "cate_name": "Mahindra XUV700",
+      "img": "https://nextgen-images.cdn.dealersolutions.com.au/modular.multisite.dealer.solutions/wp-content/uploads/2023/05/11112313/dazzlingsilver_xuv700.png?format=auto&width=1360"
+    },
+    {
+      "id": "1716981399420",
+      "cate_name": "panda cartoon",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBOsNeLBaKCHLTgBnKS4u7wYwZbBrOfr-FyQ&usqp=CAU"
+    },
+    {
+      "id": "1716981477612",
+      "cate_name": "kia sonet",
+      "img": "https://imgd.aeplcdn.com/370x208/n/cw/ec/174423/sonet-exterior-right-front-three-quarter-5.jpeg?isig=0"
+    }
+  ],
+  "product": [
+    {
+      "id": "1",
+      "cate_id": "1709711414790",
+      "prod_name": "Royal Enfield",
+      "desc": "Royal Enfield",
+      "price": "499",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXueInFor-oBlOnTR3Qb1rMHJsC2u3FOn2VA&usqp=CAU"
+    },
+    {
+      "id": "1709880986439",
+      "cate_id": "1709711710204",
+      "product_name": "Panda Cartoon",
+      "desc": "Panda Cartoon",
+      "price": "799",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBOsNeLBaKCHLTgBnKS4u7wYwZbBrOfr-FyQ&usqp=CAU"
+    },
+    {
+      "id": "1709881028215",
+      "cate_id": "1709711414790",
+      "prod_name": "Mahindra XUV700",
+      "desc": "Mahindra XUV700",
+      "price": "3555",
+      "img": "https://nextgen-images.cdn.dealersolutions.com.au/modular.multisite.dealer.solutions/wp-content/uploads/2023/05/11112313/dazzlingsilver_xuv700.png?format=auto&width=1360"
+    },
+    {
+      "id": "1709881097087",
+      "cate_id": "1709711710204",
+      "prod_name": "Kia Sonet  ",
+      "desc": "Kia Sonet ",
+      "price": "499",
+      "img": "https://imgd.aeplcdn.com/370x208/n/cw/ec/174423/sonet-exterior-right-front-three-quarter-5.jpeg?isig=0"
+    },
+    {
+      "id": "1709890279698",
+      "cate_id": "1709711710204",
+      "product_name": "Boy Cartoon Images",
+      "desc": "Boy Cartoon Images",
+      "price": "599",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmjv7SuXQtPYFv18UvNKhCOEcVqEYnNbQD7g&usqp=CAU"
+    }
+  ]
+}
