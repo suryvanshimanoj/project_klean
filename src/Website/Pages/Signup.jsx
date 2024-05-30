@@ -27,7 +27,7 @@ function Signup() {
      });   
      const changeHandel=(e)=>{
         setForm({...form,id:new Date().getTime().toString(),status:"Unblock",[e.target.name]:e.target.value});
-        console.log(formvalue);
+        console.log(form);
      }
     
     function validation()
