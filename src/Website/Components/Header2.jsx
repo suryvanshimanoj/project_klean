@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { NavLink, Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-function Header2({ title }) {
+function Header2() {
 
     const redirect = useNavigate();
     const userlogout = () => {
