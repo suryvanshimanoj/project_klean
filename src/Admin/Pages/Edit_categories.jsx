@@ -10,7 +10,7 @@ function Edit_categories() {
    
     const redirect=useNavigate();
     
-    const [formvalue, setFormvalue] = useState({
+    const [form, setForm] = useState({
         id: "",
         cate_name: "",
         img: ""
@@ -26,23 +26,23 @@ function Edit_categories() {
     const fetch = async () => {
         const res = await axios.get(`http://localhost:3000/categories/${id}`);
         console.log(res.data);
-        setFormvalue(res.data);
+        setForm(res.data);
     }
 
 
 
     const changeHandel = (e) => {
-        setFormvalue({ ...formvalue, [e.target.name]: e.target.value });
-        console.log(formvalue);
+        setForm({ ...form, [e.target.name]: e.target.value });
+        console.log(form);
     }
     function validation() {
         var res = true;
-        if (formvalue.cate_name == "") {
+        if (form.cate_name == "") {
             toast.error("Categories Name Field is required !");
             res = false;
             return false;
         }
-        if (formvalue.img == "") {
+        if (form.img == "") {
             toast.error("Add img url Field is required !");
             res = false;
             return false;
@@ -51,11 +51,11 @@ function Edit_categories() {
         return res;
     }
     const submitHandel = async (e) => {
-        e.preventDefault(); // not reload page
+        e.preventDefault(); 
         if(validation())
         {
-            const res = await axios.patch(`http://localhost:3000/categories/${id}`, formvalue);
-            setFormvalue({ ...formvalue, cate_name: "", img: "" });
+            const res = await axios.patch(`http://localhost:3000/categories/${id}`, form);
+            setForm({ ...form, cate_name: "", img: "" });
             toast.success('Data Update success');
             redirect('/manage_categories');
             return false;
@@ -76,11 +76,11 @@ function Edit_categories() {
                                 <form action="" method="post" onSubmit={submitHandel}>
                                     <div className="mb-3 mt-3">
                                         <label htmlFor="email" className="form-label">Categories Name:</label>
-                                        <input type="text" value={formvalue.cate_name} onChange={changeHandel} name="cate_name" className="form-control" placeholder="Enter Categories Name" />
+                                        <input type="text" value={form.cate_name} onChange={changeHandel} name="cate_name" className="form-control" placeholder="Enter Categories Name" />
                                     </div>
                                     <div className="mb-3 mt-3">
                                         <label htmlFor="pwd" className="form-label">Password:</label>
-                                        <input type="url" value={formvalue.img} onChange={changeHandel} name="img" className="form-control" placeholder="Enter Img url" />
+                                        <input type="url" value={form.img} onChange={changeHandel} name="img" className="form-control" placeholder="Enter Img url" />
                                     </div>
 
                                     <button type="submit" className="btn btn-primary mt-5">Submit</button>
