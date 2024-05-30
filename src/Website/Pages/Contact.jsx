@@ -6,7 +6,7 @@ import Footer from '../Components/Footer';
 
 function Contact() {
 
-    const [formvalue, setFormvalue] = useState({
+    const [form, setForm] = useState({
 
         id:"",
         name:"",
@@ -16,31 +16,32 @@ function Contact() {
     });
 
     const changeHandel = (e) =>{
-        setFormvalue({...formvalue, id: new Date(). getTime(). toString(),[e.target.name]: e.target.value});
-        console.log(formvalue);
+        setForm({...form, id: new Date(). getTime(). toString(),[e.target.name]: e.target.value});
+        console.log(form);
     };
 
-    function validation(){
+    function validation() { 
         var result=true; 
-        if (formvalue.name=="") {
+        if (form.name=="") 
+        {
             toast.error('Name Field is requried!');
             result = false;
             return false;
         }
 
-        if (formvalue.email=="") {
+        if (form.email=="") {
             toast.error('Email Field is requried!');
             result = false;
             return false;
         }
 
-        if (formvalue.subject=="") {
+        if (form.subject=="") {
             toast.error('Subject Field is requried!');
             result = false;
             return false;
         }
 
-        if (formvalue.comment=="") {
+        if (form.comment=="") {
             toast.error('Comment Field is requried!');
             result = false;
             return false;
@@ -53,9 +54,9 @@ function Contact() {
         e.preventDefault();
 
         if (validation()) {
-           const res = await axios.post(`http://localhost:3000/contact`,formvalue);
+           const res = await axios.post(`http://localhost:3000/contact`,form);
            //console.log(res); 
-           setFormvalue({...formvalue,id:"", name:"", email:"", subject:"", comment:""});
+           setForm({...form,id:"", name:"", email:"", subject:"", comment:""});
            alert('Data insert Success');
            return false;
         }
@@ -103,20 +104,20 @@ function Contact() {
                                 <form name="sentMessage" id="contactForm" noValidate="novalidate" method='post' onSubmit={submitHandel}>
                                     <div className="form-row">
                                         <div className="col-sm-6 control-group">
-                                            <input type="text"  name="name" value={formvalue.name} onChange={changeHandel} className="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                            <input type="text"  name="name" value={form.name} onChange={changeHandel} className="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                             <p className="help-block text-danger" />
                                         </div>
                                         <div className="col-sm-6 control-group">
-                                            <input type="email"  name="email" value={formvalue.email} onChange={changeHandel} className="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                            <input type="email"  name="email" value={form.email} onChange={changeHandel} className="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                             <p className="help-block text-danger" />
                                         </div>
                                     </div>
                                     <div className="control-group">
-                                        <input type="text"  name="subject" value={formvalue.subject} onChange={changeHandel} className="form-control p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                        <input type="text"  name="subject" value={form.subject} onChange={changeHandel} className="form-control p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
                                         <p className="help-block text-danger" />
                                     </div>
                                     <div className="control-group">
-                                        <textarea name="comment" value={formvalue.comment} onChange={changeHandel} className="form-control p-4" rows={6} id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message" defaultValue={""} />
+                                        <textarea name="comment" value={form.comment} onChange={changeHandel} className="form-control p-4" rows={6} id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message" defaultValue={""} />
                                         <p className="help-block text-danger" />
                                     </div>
                                     <div>
