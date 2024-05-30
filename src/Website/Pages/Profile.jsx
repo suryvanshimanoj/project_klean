@@ -82,7 +82,7 @@ function Profile() {
         if (validation()) {
             const res = await axios.patch(`http://localhost:3000/user/${formvalue.id}`, form);
            
-            setForm({ ...formvalue, id: "", name: "", email: "", password: "", mobile: "", img: "" });
+            setForm({ ...form, id: "", name: "", email: "", password: "", mobile: "", img: "" });
             toast.success('Update success');
             fetch();
             return false;
