@@ -16,24 +16,24 @@ function Alogin() {
         }
     },[]);
 
-    const [formvalue, setFormvalue] = useState({
+    const [form, setForm] = useState({
         name: "",
         email: "",
     });
     const changeHandel = (e) => {
-        setFormvalue({ ...formvalue, [e.target.name]: e.target.value });
-        console.log(formvalue);
+        setForm({ ...form, [e.target.name]: e.target.value });
+        console.log(form);
     }
 
     function validation() {
         var res = true;
 
-        if (formvalue.email == "") {
+        if (form.email == "") {
             toast.error("Email Field is required !");
             res = false;
             return false;
         }
-        if (formvalue.password == "") {
+        if (form.password == "") {
             toast.error("Password Field is required !");
             res = false;
             return false;
@@ -43,15 +43,15 @@ function Alogin() {
     }
 
     const submitHandel = async (e) => {
-        e.preventDefault(); // not reload page
+        e.preventDefault(); 
         if (validation()) {
-            const res = await axios.get(`http://localhost:3000/admin?email=${formvalue.email}`);
+            const res = await axios.get(`http://localhost:3000/admin?email=${form.email}`);
             console.log(res);
             if (res.data.length > 0) {
                 
-                if (res.data[0].password == formvalue.password) {
+                if (res.data[0].password == form.password) {
 
-                    // session create
+                    
                     localStorage.setItem('aid', res.data[0].id);
                     localStorage.setItem('aname', res.data[0].name);
 
@@ -61,13 +61,13 @@ function Alogin() {
 
                 }
                 else {
-                    setFormvalue({ ...formvalue, email: "", password: "" });
+                    setForm({ ...form, email: "", password: "" });
                     toast.error('Wrong password');
                     return false;
                 }
             }
             else {
-                setFormvalue({ ...formvalue, email: "", password: "" });
+                setForm({ ...form, email: "", password: "" });
                 toast.error('Email does not Exist');
                 return false;
             }
@@ -92,11 +92,11 @@ function Alogin() {
 
                                     <div className="mb-3 mt-3">
                                         <label htmlFor="email" className="form-label">Email</label>
-                                        <input type="email" value={formvalue.email} onChange={changeHandel} name="email" className="form-control" placeholder="Enter Email" />
+                                        <input type="email" value={form.email} onChange={changeHandel} name="email" className="form-control" placeholder="Enter Email" />
                                     </div>
                                     <div className="mb-3 mt-3">
                                         <label htmlFor="password" className="form-label">Password</label>
-                                        <input type="password" value={formvalue.password} onChange={changeHandel} name="password" className="form-control" placeholder="Enter password" />
+                                        <input type="password" value={form.password} onChange={changeHandel} name="password" className="form-control" placeholder="Enter password" />
                                     </div>
 
                                     <button type="submit" className="btn btn-primary mt-5">Submit</button>
