@@ -16,7 +16,7 @@ function Signup() {
         }
     },[]);
     
-    const [formvalue,setFormvalue]=useState({
+    const [form,setForm]=useState({
         id: "",
         name: "",
         email: "",
@@ -26,39 +26,39 @@ function Signup() {
         img:""
      });   
      const changeHandel=(e)=>{
-        setFormvalue({...formvalue,id:new Date().getTime().toString(),status:"Unblock",[e.target.name]:e.target.value});
+        setForm({...form,id:new Date().getTime().toString(),status:"Unblock",[e.target.name]:e.target.value});
         console.log(formvalue);
      }
     
     function validation()
     {
         var res=true;
-        if(formvalue.name=="")
+        if(form.name=="")
         {
             toast.error("Name Field is required !");
             res=false;
             return false;
         }
-        if(formvalue.email=="")
+        if(form.email=="")
         {
             toast.error("Email Field is required !");
             res=false;
             return false;
         }
-        if(formvalue.password=="")
+        if(form.password=="")
         {
             toast.error("Password Field is required !");
             res=false;
             return false;
         }
         
-        if(formvalue.mobile=="")
+        if(form.mobile=="")
         {
             toast.error("Mobile Field is required !");
             res=false;
             return false;
         }
-        if(formvalue.img=="")
+        if(form.img=="")
         {
             toast.error("Add image URL Field is required !");
             res=false;
@@ -69,12 +69,12 @@ function Signup() {
 
 
     const submitHandel=async(e)=>{
-        e.preventDefault(); // not reload page
+        e.preventDefault(); 
         if(validation())
         {
-            const res=await axios.post(`http://localhost:3000/user`,formvalue);
-            //console.log(res);
-            setFormvalue({...formvalue,id:"",name:"",email:"",password:"",mobile:"",img:""});
+            const res=await axios.post(`http://localhost:3000/user`,form);
+           
+            setForm({...form,id:"",name:"",email:"",password:"",mobile:"",img:""});
             toast.success('Signup success');
             return false;
         }
@@ -113,24 +113,24 @@ function Signup() {
                                 <form  method='post' onSubmit={submitHandel}>
                                     <div className="form-row">
                                         <div className="col-sm-6 control-group">
-                                            <input type="text"  name="name" value={formvalue.name} onChange={changeHandel} className="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                            <input type="text"  name="name" value={form.name} onChange={changeHandel} className="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                             <p className="help-block text-danger" />
                                         </div>
                                         <div className="col-sm-6 control-group">
-                                            <input type="email"  name="email" value={formvalue.email} onChange={changeHandel} className="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                            <input type="email"  name="email" value={form.email} onChange={changeHandel} className="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                             <p className="help-block text-danger" />
                                         </div>
                                     </div>
                                     <div className="control-group">
-                                        <input type="password"  name="password" value={formvalue.password} onChange={changeHandel} className="form-control p-4" id="password" placeholder="password" required="required" data-validation-required-message="Please enter a password" />
+                                        <input type="password"  name="password" value={form.password} onChange={changeHandel} className="form-control p-4" id="password" placeholder="password" required="required" data-validation-required-message="Please enter a password" />
                                         <p className="help-block text-danger" />
                                     </div>
                                     <div className="control-group">
-                                    <input type="text"  name="mobile" value={formvalue.mobile} onChange={changeHandel} className="form-control p-4" id="mobile" placeholder="mobile" required="required" data-validation-required-message="Please enter a mobile" />
+                                    <input type="text"  name="mobile" value={form.mobile} onChange={changeHandel} className="form-control p-4" id="mobile" placeholder="mobile" required="required" data-validation-required-message="Please enter a mobile" />
                                         <p className="help-block text-danger" />
                                     </div>
                                     <div className="control-group">
-                                    <input type="url"  name="img" value={formvalue.img} onChange={changeHandel} className="form-control p-4" id="mobile" placeholder="img url" required="required" data-validation-required-message="Please enter a img" />
+                                    <input type="url"  name="img" value={form.img} onChange={changeHandel} className="form-control p-4" id="mobile" placeholder="img url" required="required" data-validation-required-message="Please enter a img" />
                                         <p className="help-block text-danger" />
                                     </div>
                                     <div>
