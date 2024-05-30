@@ -16,24 +16,25 @@ function Login() {
         }
     }, []);
 
-    const [formvalue, setFormvalue] = useState({
+    const [form, setForm] = useState({
         name: "",
         email: "",
     });
+
     const changeHandel = (e) => {
-        setFormvalue({ ...formvalue, [e.target.name]: e.target.value });
-        console.log(formvalue);
+        setForm({ ...form, [e.target.name]: e.target.value });
+        console.log(form);
     }
 
     function validation() {
         var res = true;
 
-        if (formvalue.email == "") {
+        if (form.email == "") {
             toast.error("Email Field is required !");
             res = false;
             return false;
         }
-        if (formvalue.password == "") {
+        if (form.password == "") {
             toast.error("Password Field is required !");
             res = false;
             return false;
@@ -44,14 +45,14 @@ function Login() {
 
 
     const submitHandel = async (e) => {
-        e.preventDefault(); // not reload page
+        e.preventDefault();
         if (validation()) {
-            const res = await axios.get(`http://localhost:3000/user?email=${formvalue.email}`);
+            const res = await axios.get(`http://localhost:3000/user?email=${form.email}`);
             console.log(res);
             if (res.data.length > 0) {
-                if (res.data[0].password == formvalue.password) {
+                if (res.data[0].password == form.password) {
                     if (res.data[0].status == "Unblock") {
-                        // session create
+                        
                         localStorage.setItem('uid', res.data[0].id);
                         localStorage.setItem('uname', res.data[0].name);
 
@@ -60,19 +61,19 @@ function Login() {
                         return false;
                     }
                     else {
-                        setFormvalue({ ...formvalue, email: "", password: "" });
+                        setForm({ ...form, email: "", password: "" });
                         toast.error('Accout Blocked ');
                         return false;
                     }
                 }
                 else {
-                    setFormvalue({ ...formvalue, email: "", password: "" });
+                    setForm({ ...form, email: "", password: "" });
                     toast.error('Wrong password');
                     return false;
                 }
             }
             else {
-                setFormvalue({ ...formvalue, email: "", password: "" });
+                setForm({ ...form, email: "", password: "" });
                 toast.error('Email does not Exist');
                 return false;
             }
@@ -115,12 +116,12 @@ function Login() {
                                     <div className="form-row">
                                         
                                         <div className="col-sm-6 control-group">
-                                            <input type="email" name="email" value={formvalue.email} onChange={changeHandel} className="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                            <input type="email" name="email" value={form.email} onChange={changeHandel} className="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                             <p className="help-block text-danger" />
                                         </div>
                                     </div>
                                     <div className="control-group">
-                                        <input type="password" name="password" value={formvalue.password} onChange={changeHandel} className="form-control p-4" id="password" placeholder="password" required="required" data-validation-required-message="Please enter a password" />
+                                        <input type="password" name="password" value={form.password} onChange={changeHandel} className="form-control p-4" id="password" placeholder="password" required="required" data-validation-required-message="Please enter a password" />
                                         <p className="help-block text-danger" />
                                     </div>
                                     
