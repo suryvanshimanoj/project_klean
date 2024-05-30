@@ -28,7 +28,7 @@ function Profile() {
     }
 
 
-    const [formvalue, setFormvalue] = useState({
+    const [form, setForm] = useState({
 
         id: "",
         name: "",
@@ -41,34 +41,34 @@ function Profile() {
     const editdata = async (id) => {
         const res = await axios.get(`http://localhost:3000/user/${id}`);
         console.log(res.data);
-        setFormvalue(res.data);
+        setForm(res.data);
     }
 
     const changeHandel = (e) => {
-        setFormvalue({ ...formvalue, [e.target.name]: e.target.value });
-        console.log(formvalue);
+        setForm({ ...form, [e.target.name]: e.target.value });
+        console.log(form);
     }
 
     function validation() {
         var res = true;
-        if (formvalue.name == "") {
+        if (form.name == "") {
             toast.error("Name Field is required !");
             res = false;
             return false;
         }
-        if (formvalue.email == "") {
+        if (form.email == "") {
             toast.error("Email Field is required !");
             res = false;
             return false;
         }
 
 
-        if (formvalue.mobile == "") {
+        if (form.mobile == "") {
             toast.error("Mobile Field is required !");
             res = false;
             return false;
         }
-        if (formvalue.img == "") {
+        if (form.img == "") {
             toast.error("Add image URL Field is required !");
             res = false;
             return false;
@@ -78,11 +78,11 @@ function Profile() {
 
 
     const submitHandel = async (e) => {
-        e.preventDefault(); // not reload page
+        e.preventDefault(); 
         if (validation()) {
-            const res = await axios.patch(`http://localhost:3000/user/${formvalue.id}`, formvalue);
-            //console.log(res);
-            setFormvalue({ ...formvalue, id: "", name: "", email: "", password: "", mobile: "", img: "" });
+            const res = await axios.patch(`http://localhost:3000/user/${formvalue.id}`, form);
+           
+            setForm({ ...formvalue, id: "", name: "", email: "", password: "", mobile: "", img: "" });
             toast.success('Update success');
             fetch();
             return false;
@@ -127,17 +127,17 @@ function Profile() {
                                             <form action="" method="post" >
                                                 <div className="row g-3">
                                                     <div className="col-md-12">
-                                                        <input type="text" value={formvalue.name} onChange={changeHandel} name="name" className="form-control border-0 bg-light px-4" placeholder="Your Name" style={{ height: 55 }} />
+                                                        <input type="text" value={form.name} onChange={changeHandel} name="name" className="form-control border-0 bg-light px-4" placeholder="Your Name" style={{ height: 55 }} />
                                                     </div>
                                                     <div className="col-md-12">
-                                                        <input type="email" value={formvalue.email} onChange={changeHandel} name="email" className="form-control border-0 bg-light px-4" placeholder="Your Email" style={{ height: 55 }} />
+                                                        <input type="email" value={form.email} onChange={changeHandel} name="email" className="form-control border-0 bg-light px-4" placeholder="Your Email" style={{ height: 55 }} />
                                                     </div>
 
                                                     <div className="col-12">
-                                                        <input type="number" value={formvalue.mobile} onChange={changeHandel} name="mobile" className="form-control border-0 bg-light px-4" placeholder="Mobile" style={{ height: 55 }} />
+                                                        <input type="number" value={form.mobile} onChange={changeHandel} name="mobile" className="form-control border-0 bg-light px-4" placeholder="Mobile" style={{ height: 55 }} />
                                                     </div>
                                                     <div className="col-12">
-                                                        <input type="url" value={formvalue.img} onChange={changeHandel} name="img" className="form-control border-0 bg-light px-4" placeholder="Img URL" style={{ height: 55 }} />
+                                                        <input type="url" value={form.img} onChange={changeHandel} name="img" className="form-control border-0 bg-light px-4" placeholder="Img URL" style={{ height: 55 }} />
                                                     </div>
                                                     <div className="col-12">
                                                         <button className="btn btn-primary w-100 py-3" onClick={submitHandel} type="submit" data-bs-dismiss="modal">Save</button>
