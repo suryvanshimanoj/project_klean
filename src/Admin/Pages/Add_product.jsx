@@ -18,7 +18,7 @@ function Add_product() {
         setData(res.data);
     }
 
-    const [formvalue, setFormvalue] = useState({
+    const [form, setForm] = useState({
         id: "",
         cate_id: "",
         prod_name: "",
@@ -29,34 +29,34 @@ function Add_product() {
 
 
     const changeHandel = (e) => {
-        setFormvalue({ ...formvalue, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
-        console.log(formvalue);
+        setForm({ ...form, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
+        console.log(form);
     }
 
     function validation() {
         var res = true;
-        if (formvalue.cate_id == "") {
+        if (form.cate_id == "") {
             toast.error("Categories required !");
             res = false;
             return false;
         }
-        if (formvalue.prod_name == "") {
+        if (form.prod_name == "") {
             toast.error("Product price field required !");
             res = false;
             return false;
         }
-        if (formvalue.price == "") {
+        if (form.price == "") {
             toast.error("Price required !");
             res = false;
             return false;
         }
-        if (formvalue.desc == "") {
+        if (form.desc == "") {
             toast.error("desc required !");
             res = false;
             return false;
         }
 
-        if (formvalue.img == "") {
+        if (form.img == "") {
             toast.error("Add img url Field is required !");
             res = false;
             return false;
@@ -66,12 +66,12 @@ function Add_product() {
     }
 
     const submitHandel = async (e) => {
-        e.preventDefault(); // not reload page
+        e.preventDefault(); 
         if(validation())
         {
-            const res = await axios.post(`http://localhost:3000/product`, formvalue);
+            const res = await axios.post(`http://localhost:3000/product`, form);
             //console.log(res);
-            setFormvalue({ ...formvalue, id: "", cate_id: "", prod_name: "", desc: "", price: "", img: "" });
+            setForm({ ...form, id: "", cate_id: "", prod_name: "", desc: "", price: "", img: "" });
             toast.success('Data insert success');
             return false;
         }    
@@ -104,20 +104,20 @@ function Add_product() {
                                     </div>
                                     <div className="mb-3 mt-3">
                                         <label htmlFor="email" className="form-label">Product Name:</label>
-                                        <input type="text" value={formvalue.prod_name} onChange={changeHandel} name="prod_name" className="form-control" placeholder="Enter Product Name" />
+                                        <input type="text" value={form.prod_name} onChange={changeHandel} name="prod_name" className="form-control" placeholder="Enter Product Name" />
                                     </div>
                                     <div className="mb-3 mt-3">
                                         <label htmlFor="email" className="form-label">Description:</label>
-                                        <textarea value={formvalue.desc} onChange={changeHandel} name="desc" className="form-control"></textarea>
+                                        <textarea value={form.desc} onChange={changeHandel} name="desc" className="form-control"></textarea>
                                     </div>
                                     <div className="mb-3 mt-3">
                                         <label htmlFor="email" className="form-label">Product Price:</label>
-                                        <input type="number" value={formvalue.price} onChange={changeHandel} name="price" className="form-control" placeholder="Enter Product Price" />
+                                        <input type="number" value={form.price} onChange={changeHandel} name="price" className="form-control" placeholder="Enter Product Price" />
                                     </div>
 
                                     <div className="mb-3 mt-3">
                                         <label htmlFor="pwd" className="form-label">Image:</label>
-                                        <input type="url" value={formvalue.img} onChange={changeHandel} name="img" className="form-control" placeholder="Enter Img url" />
+                                        <input type="url" value={form.img} onChange={changeHandel} name="img" className="form-control" placeholder="Enter Img url" />
                                     </div>
 
                                     <button type="submit" className="btn btn-primary mt-5">Submit</button>
